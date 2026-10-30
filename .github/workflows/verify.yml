@@ -1,0 +1,16 @@
+name: Verify public source
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run audit:public
+      - run: npm run test:unit
+      - run: npm run test:branding:db
+      - run: npm run build

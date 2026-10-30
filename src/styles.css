@@ -1,0 +1,432 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-heading: var(--font-sans);
+  --font-sans: "Inter Variable", sans-serif;
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.97 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.922 0 0);
+  --sidebar-primary-foreground: oklch(0.205 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+    @apply bg-background text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.02em;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-button:single-button,
+  ::-webkit-scrollbar-button:vertical,
+  ::-webkit-scrollbar-button:horizontal {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in oklch, var(--foreground) 28%, transparent);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in oklch, var(--foreground) 42%, transparent);
+  }
+
+  html {
+    scrollbar-color: color-mix(in oklch, var(--foreground) 28%, transparent) transparent;
+    scrollbar-width: thin;
+  }
+
+  .contained-scrollbar {
+    overscroll-behavior: contain;
+    scrollbar-color: color-mix(in oklch, var(--foreground) 28%, transparent) transparent;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+  }
+
+  .contained-scrollbar::-webkit-scrollbar-track {
+    margin-block: 0.5rem;
+    margin-inline: 0.5rem;
+  }
+
+  .contained-scrollbar::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    border: 1px solid transparent;
+  }
+
+  :where([class*="overflow-auto"], [class*="overflow-x-auto"], [class*="overflow-y-auto"]) {
+    overscroll-behavior: contain;
+    scrollbar-color: color-mix(in oklch, var(--foreground) 28%, transparent) transparent;
+    scrollbar-width: thin;
+  }
+
+  /* Horizontal-only regions must not capture vertical wheel/trackpad scrolling. */
+  :where([class*="overflow-x-auto"]):not([class*="overflow-y-auto"]):not([class*="overflow-auto"]) {
+    overscroll-behavior-x: contain;
+    overscroll-behavior-y: auto;
+  }
+
+  /* Utilities */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Quill Custom Styles */
+  .quill-custom-container .ql-toolbar.ql-snow {
+    border-color: var(--color-border);
+    border-radius: 0.5rem 0.5rem 0 0;
+    background-color: var(--color-muted);
+  }
+  .quill-custom-container .ql-container.ql-snow {
+    border-color: var(--color-border);
+    border-radius: 0 0 0.5rem 0.5rem;
+    font-family: inherit;
+  }
+  .quill-custom-container .ql-container {
+    flex: 1;
+    overflow-y: auto;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+
+  .quill-custom-container .ql-editor {
+    min-height: 200px;
+  }
+
+  .quill-custom-container .ql-toolbar {
+    flex-shrink: 0;
+  }
+
+  /* Invert Quill icons for Dark Mode */
+  .dark .ql-snow .ql-stroke {
+    stroke: var(--color-foreground);
+  }
+  .dark .ql-snow .ql-fill {
+    fill: var(--color-foreground);
+  }
+  .dark .ql-snow .ql-picker {
+    color: var(--color-foreground);
+  }
+  .dark .ql-snow .ql-picker-options {
+    background-color: var(--color-background);
+    border-color: var(--color-border);
+  }
+
+  /* Estilização básica para a exibição (em vez de @tailwindcss/typography) */
+  .ql-editor h1,
+  .prose-sm h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .ql-editor h2,
+  .prose-sm h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .ql-editor h3,
+  .prose-sm h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .ql-editor p,
+  .prose-sm p {
+    margin-bottom: 0.5rem;
+  }
+  .ql-editor ul,
+  .prose-sm ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .ql-editor ol,
+  .prose-sm ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .ql-editor strong,
+  .prose-sm strong {
+    font-weight: 600;
+  }
+  .ql-editor em,
+  .prose-sm em {
+    font-style: italic;
+  }
+  .ql-editor u,
+  .prose-sm u {
+    text-decoration: underline;
+  }
+  html {
+    @apply font-sans;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  /* Keep field labels consistently separated without affecting checkbox/switch labels. */
+  [data-slot="label"]:not(.sr-only):has(+ [data-slot="input"]),
+  [data-slot="label"]:not(.sr-only):has(+ [data-slot="textarea"]),
+  [data-slot="label"]:not(.sr-only):has(+ [data-slot="select-trigger"]),
+  [data-slot="label"]:not(.sr-only):has(+ [data-slot="date-picker-trigger"]) {
+    margin-bottom: 0.375rem;
+  }
+
+  :where(.space-y-1\.5, .space-y-2) > [data-slot="label"]:not(.sr-only) {
+    margin-bottom: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply w-full p-4 md:p-8 xl:p-10;
+  }
+
+  .touch-target {
+    @apply inline-flex min-h-11 min-w-11 items-center justify-center rounded-md;
+  }
+
+  .mobile-card-list {
+    @apply grid gap-3 md:hidden;
+  }
+
+  .mobile-data-card {
+    @apply rounded-xl border border-border bg-card p-4 shadow-none transition-colors active:bg-muted/50;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .touch-visible-action {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+@keyframes kanban-insertion-open {
+  from {
+    height: 0;
+    opacity: 0;
+    transform: scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.kanban-insertion-slot {
+  animation: kanban-insertion-open 240ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transform-origin: top center;
+  will-change: height, opacity, transform;
+}
+
+.modal-form-scroll {
+  margin-inline: -0.25rem;
+  padding-inline: 0.25rem;
+  overscroll-behavior: contain;
+}
+
+/* Shared field-pair contract: labels and controls always align, even with mixed input types. */
+.form-paired-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 0.75rem;
+}
+
+.form-field {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 0.375rem;
+}
+
+@media (min-width: 640px) {
+  .form-paired-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kanban-insertion-slot {
+    animation: none;
+  }
+}
