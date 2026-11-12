@@ -1,10 +1,15 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "crm-whitelabel",
+  "name": "crm",
+  "account_id": "2da48544cd83d6a1c3cb1306f94ade77",
   "compatibility_date": "2025-09-24",
-  "compatibility_flags": [
-    "nodejs_compat"
-  ],
-  "main": "@tanstack/react-start/server-entry",
-  "workers_dev": true
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "src/worker.ts",
+  "workers_dev": true,
+  "triggers": {
+    "crons": ["0 */6 * * *"],
+  },
+  "observability": {
+    "enabled": true,
+  },
 }
