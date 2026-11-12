@@ -6,8 +6,6 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "deploy": "npm run build && node scripts/cloudflare.mjs deploy",
-    "cloudflare:login": "node scripts/cloudflare.mjs login",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "test:financial": "node --experimental-strip-types --test tests/payment-metrics.test.ts tests/recurring-services.test.ts tests/recurring-payment.test.ts",
